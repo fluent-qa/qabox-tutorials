@@ -32,11 +32,31 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     database: postgresql
 
+  mail:
+    username: xxxx@qq.com
+    password: xxxxxxx
+    host: smtp.qq.com
+    properties:
+      mail.smtp.ssl.auth: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.ssl.required: true
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
 
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: io.fluentqa
 # knife4j的增强配置，不需要增强可以不配
 knife4j:
   enable: true
