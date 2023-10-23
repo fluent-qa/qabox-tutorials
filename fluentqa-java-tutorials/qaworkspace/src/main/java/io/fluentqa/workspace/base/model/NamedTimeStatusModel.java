@@ -1,4 +1,4 @@
-package io.fluentqa.base.model;
+package io.fluentqa.workspace.base.model;
 
 
 import lombok.Data;

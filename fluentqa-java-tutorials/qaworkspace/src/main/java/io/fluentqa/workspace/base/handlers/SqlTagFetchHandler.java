@@ -1,4 +1,4 @@
-package io.fluentqa.base.handlers;
+package io.fluentqa.workspace.base.handlers;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;

@@ -1,1 +1,1 @@
-package io.fluentqa.base;
+package io.fluentqa.workspace.base;

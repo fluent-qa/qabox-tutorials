@@ -1,6 +1,6 @@
-package io.fluentqa.base.model;
+package io.fluentqa.workspace.base.model;
 
-import io.fluentqa.base.handlers.SqlTagFetchHandler;
+import io.fluentqa.workspace.base.handlers.SqlTagFetchHandler;
 import lombok.Data;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
@@ -16,7 +16,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 
-@Erupt(name = "产品字典值配置", power = @Power(importable = true, export = true))
+@Erupt(name = "产品字典值配置",
+        power = @Power(importable = true, export = true))
 @Table(name = "master_data")
 @Entity
 @Data

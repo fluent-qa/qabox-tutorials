@@ -23,7 +23,7 @@ erupt:
 
 spring:
   datasource:
-    url: jdbc:postgresql://127.0.0.1:7432/qa_workspace
+    url: jdbc:postgresql://127.0.0.1:7432/postgres?currentSchema=qa_workspace
     username: postgres
     password: changeit
   jpa:

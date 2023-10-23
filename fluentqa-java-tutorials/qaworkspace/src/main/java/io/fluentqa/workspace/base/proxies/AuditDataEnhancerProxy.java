@@ -1,4 +1,4 @@
-package io.fluentqa.base.proxies;
+package io.fluentqa.workspace.base.proxies;
 
 import org.springframework.stereotype.Component;
 import xyz.erupt.core.context.MetaContext;
