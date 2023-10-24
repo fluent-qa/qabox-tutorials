@@ -4,6 +4,7 @@ import io.fluentqa.workspace.base.handlers.SqlTagFetchHandler;
 import lombok.Data;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Layout;
 import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.EditType;
@@ -17,7 +18,15 @@ import javax.persistence.Table;
 
 
 @Erupt(name = "产品字典值配置",
-        power = @Power(importable = true, export = true))
+        power = @Power(importable = true,
+                export = true),
+        layout = @Layout(
+                tableLeftFixed = 3,
+                // 使用前端分页
+//                pagingType = Layout.PagingType.FRONT,
+                // 每页显示20条数据
+                pageSize = 30
+        ))
 @Table(name = "master_data")
 @Entity
 @Data

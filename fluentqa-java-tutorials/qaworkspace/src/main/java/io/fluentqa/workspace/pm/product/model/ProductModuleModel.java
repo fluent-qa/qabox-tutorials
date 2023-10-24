@@ -3,6 +3,7 @@ package io.fluentqa.workspace.pm.product.model;
 import io.fluentqa.workspace.base.model.ModelWithValidFlagVo;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Layout;
 import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_erupt.Tree;
 import xyz.erupt.annotation.sub_field.Edit;
@@ -19,7 +20,14 @@ import java.util.UUID;
 
 @Erupt(name = "产品模块配置",
         power = @Power(importable = true, export = true),
-        tree = @Tree(pid = "parent.id", expandLevel = 3))
+        tree = @Tree(pid = "parent.id"),
+        layout = @Layout(
+                tableLeftFixed = 3,
+                // 使用前端分页
+//                pagingType = Layout.PagingType.FRONT,
+                // 每页显示20条数据
+                pageSize = 30
+        ))
 @Entity
 @Table(name = "products")
 public class ProductModuleModel extends ModelWithValidFlagVo {
@@ -84,10 +92,10 @@ public class ProductModuleModel extends ModelWithValidFlagVo {
                             fetchHandlerParams = "select id,name from master_data where category='PRODUCT'"
                     ))
     )
-    private String metaType;
+    private String productType;
 
 
-    @Column(length = 36, nullable = true, updatable = false)
+    @Column(length = 36, nullable = false, updatable = false)
     private String uuid = UUID.randomUUID().toString();
 
     public String getName() {
@@ -114,12 +122,12 @@ public class ProductModuleModel extends ModelWithValidFlagVo {
         this.details = details;
     }
 
-    public String getMetaType() {
-        return metaType;
+    public String getProductType() {
+        return productType;
     }
 
-    public void setMetaType(String metaType) {
-        this.metaType = metaType;
+    public void setProductType(String productType) {
+        this.productType = productType;
     }
 
     public ProductModuleModel getParent() {
