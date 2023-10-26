@@ -1,7 +1,6 @@
 package io.fluentqa.workspace.tc.model;
 
 
-import io.fluentqa.workspace.base.handlers.SqlTagFetchHandler;
 import io.fluentqa.workspace.base.model.ModelWithValidFlagVo;
 import io.fluentqa.workspace.pm.product.model.ProductModuleModel;
 import xyz.erupt.annotation.Erupt;
