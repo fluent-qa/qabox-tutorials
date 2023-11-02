@@ -1,0 +1,52 @@
+<idea-plugin>
+  <id>com.chesterccw.excelreader</id>
+  <name>ExcelReader</name>
+  <version>2022.8.1-203.222</version>
+  <vendor email="wuzi@obiscr.com" url="https://obiscr.com">obiscr</vendor>
+
+  <description><![CDATA[
+      The description of the plugin is automatically generated when it is packaged.
+      The description information is specifically configured in the Plugin description
+      node of the DESCRIPTION.md file
+    ]]></description>
+
+  <change-notes><![CDATA[
+      <p>2022.8.1-203.222</p>
+      <ul>
+        <li>Support preview excel file in vcs (支持在VCS预览Excel文件)</li>
+        <li>Add <a href="https://www.obiscr.com/article/Plugin-Discount">discount information</a> (添加<a href="https://www.obiscr.com/article/Plugin-Discount"> 折扣信息</a>)</li>
+        <li>Fix <a href="https://github.com/obiscr/ExcelReader/issues/12">#12</a>: Search results are highlighted abnormally (修复：搜索结果高亮错误)</li>
+      </ul><br>
+  ]]></change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="203" until-build="222.*"/>
+
+  <depends>com.intellij.modules.platform</depends>
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!--<depends>com.intellij.modules.platform</depends>-->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <toolWindow id="ExcelReader" anchor="bottom" icon="/icons/excel_toolwindow.svg"
+                factoryClass="com.github.obiscr.excelreader.ui.ExcelReaderToolWindowFactory"
+    />
+    <applicationService serviceImplementation="com.github.obiscr.excelreader.ui.DefaultExcelReaderRunnerFactory"/>
+    <projectService serviceImplementation="com.github.obiscr.excelreader.ui.ExcelReaderView"/>
+    <fileType name="MyNativeFile" implementationClass="com.github.obiscr.excelreader.file.MyExcelNativeFileType" fieldName="INSTANCE"
+              extensions="xls;xlsx;csv" order="first"/>
+
+    <!--    <postStartupActivity implementation="com.github.obiscr.excelreader.start.StartUpActivity"/>-->
+    <diff.DiffTool implementation="com.github.obiscr.excelreader.ui.vcs.ExcelDiffTool" />
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="Reader" class="com.github.obiscr.excelreader.ExcelReaderAction" text="Open As ExcelReader" description="The tool you can read the &lt;*.xls&gt; file in IDEA.">
+      <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="control shift D"/>
+    </action>
+  </actions>
+
+</idea-plugin>
