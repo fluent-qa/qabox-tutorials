@@ -1,0 +1,38 @@
+<idea-plugin>
+    <id>com.liuzhihang.toolkit.toolkit</id>
+    <name>Toolkit</name>
+    <vendor email="liuzhihangs@qq.com" url="https://liuzhihang.com">Liu ZhiHang</vendor>
+
+    <description><![CDATA[ Description will be added by gradle build]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.java</depends>
+
+    <!-- 兼容版本 -->
+    <idea-version since-build="203"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceImplementation="com.liuzhihang.toolkit.config.Settings"/>
+        <!--<projectConfigurable instance="com.liuzhihang.toolkit.config.SettingsConfigurable"-->
+        <!--                     displayName="Toolkit Settings"-->
+        <!--                     nonDefaultProject="true"/>-->
+    </extensions>
+
+    <actions>
+        <group id="liuzhihang.toolkit" popup="false" compact="true">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <!-- 将action添加到自己声明的组中 -->
+            <action id="Toolkit.Json.CopyAsJsonAction" class="com.liuzhihang.toolkit.action.CopyAsJsonAction"
+                    text="Copy As Json" description="Copy As Json">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift J"/>
+                <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="ctrl shift J"/>
+            </action>
+
+            <action id="Toolkit" class="com.liuzhihang.toolkit.action.ToolkitAction" text="Toolkit">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift T"/>
+                <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="ctrl shift T"/>
+            </action>
+        </group>
+    </actions>
+</idea-plugin>
