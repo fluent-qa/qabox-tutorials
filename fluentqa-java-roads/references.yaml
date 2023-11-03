@@ -7,6 +7,8 @@ ddd:
   - https://github.com/ddd-by-examples/factory.git
   - https://github.com/tkaczmarzyk/specification-arg-resolver.git
 demos:
+  - https://gitee.com/srcmain/ebts-springb-code-generation
+  - https://gitee.com/kekingcn/file-online-preview.git
   - https://github.com/IBM/application-modernization-javaee-quarkus.git
 data:
   - https://github.com/embulk/embulk
