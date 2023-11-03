@@ -1,0 +1,22 @@
+ebean:
+  dbSchema: test_app  # use this schema rather than public for postgresql
+  migration:
+    run: true       # run database migrations on startup
+  test:
+    platform: h2 # h2, postgres, mysql, ...
+    ddlMode: dropCreate # none | dropCreate | migration
+    dbName: test_app
+
+datasource:
+  db:
+    username: sa
+    password: sa
+    url: jdbc:h2:mem:testapp
+  db-1:
+    username: sa
+    password: sa
+    url: jdbc:h2:mem:myapp
+#  other:
+#    username: other_username
+#    password: ${otherPassword}
+#    url: jdbc:postgresql://${otherDatabaseHost}:5432/other_dbname

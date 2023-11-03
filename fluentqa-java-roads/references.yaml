@@ -1,2 +1,13 @@
 productivity:
   - https://gitee.com/durcframework/code-gen.git
+  - https://github.com/structurizr/dsl.git
+api:
+  - https://github.com/alenfive/rocket-api.git
+ddd:
+  - https://github.com/ddd-by-examples/factory.git
+  - https://github.com/tkaczmarzyk/specification-arg-resolver.git
+demos:
+  - https://github.com/IBM/application-modernization-javaee-quarkus.git
+data:
+  - https://github.com/embulk/embulk
+  - https://github.com/houbb/data-factory.git

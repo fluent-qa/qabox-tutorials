@@ -23,12 +23,5 @@
             <artifactId>aviator</artifactId>
             <version>5.4.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.9.3</version>
-            <scope>test</scope>
-        </dependency>
-
     </dependencies>
 </project>
