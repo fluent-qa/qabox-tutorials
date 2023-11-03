@@ -1,2 +1,7 @@
 productivity:
   - https://gitee.com/durcframework/code-gen.git
+api:
+  - https://github.com/alenfive/rocket-api.git
+ddd:
+  - https://github.com/ddd-by-examples/factory.git
+  - https://github.com/tkaczmarzyk/specification-arg-resolver.git

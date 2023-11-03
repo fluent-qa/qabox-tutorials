@@ -17,6 +17,7 @@
         <module>modules</module>
 <!--        <module>basic</module>-->
         <module>data-frameworks</module>
+        <module>web-framework</module>
     </modules>
 
     <properties>

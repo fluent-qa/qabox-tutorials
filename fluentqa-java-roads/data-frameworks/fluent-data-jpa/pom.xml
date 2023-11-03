@@ -5,17 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.fluent</groupId>
-        <artifactId>fluentqa-java-roads</artifactId>
+        <artifactId>data-frameworks</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>data-frameworks</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>fluent-ebean</module>
-        <module>fluent-data-jpa</module>
-        <module>fluent-roach-data</module>
-    </modules>
+
+    <artifactId>fluent-data-jpa</artifactId>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
