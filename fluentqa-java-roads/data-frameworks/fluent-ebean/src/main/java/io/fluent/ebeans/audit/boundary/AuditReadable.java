@@ -1,6 +1,5 @@
 package io.fluent.ebeans.audit.boundary;
 
-import io.coodoo.framework.audit.boundary.annotation.AuditRelatedEntity;
 
 /**
  * Interface needed for the use of {@link AuditRelatedEntity} to provide a String representation.

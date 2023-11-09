@@ -1,6 +1,7 @@
 package io.fluent.ebeans.audit.control;
 
-import io.coodoo.framework.audit.boundary.AuditUserBean;
+
+import io.fluent.ebeans.audit.boundary.AuditUserBean;
 
 /**
  * @author coodoo GmbH (coodoo.io)

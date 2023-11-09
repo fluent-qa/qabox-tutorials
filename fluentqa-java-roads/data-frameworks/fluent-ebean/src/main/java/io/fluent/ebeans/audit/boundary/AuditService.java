@@ -1,5 +1,14 @@
 package io.fluent.ebeans.audit.boundary;
 
+import io.fluent.ebeans.audit.boundary.annotation.AuditEntityManager;
+import io.fluent.ebeans.audit.boundary.interceptor.AuditSynchronousInterceptor;
+import io.fluent.ebeans.audit.control.AuditConfig;
+import io.fluent.ebeans.audit.control.AuditController;
+import io.fluent.ebeans.audit.control.AuditUser;
+import io.fluent.ebeans.audit.control.AuditUtil;
+import io.fluent.ebeans.audit.entity.AuditChange;
+import io.fluent.ebeans.audit.entity.AuditEvent;
+
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
@@ -8,14 +17,6 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import io.coodoo.framework.audit.boundary.annotation.AuditEntityManager;
-import io.coodoo.framework.audit.boundary.interceptor.AuditSynchronousInterceptor;
-import io.coodoo.framework.audit.control.AuditConfig;
-import io.coodoo.framework.audit.control.AuditController;
-import io.coodoo.framework.audit.control.AuditUser;
-import io.coodoo.framework.audit.control.AuditUtil;
-import io.coodoo.framework.audit.entity.AuditChange;
-import io.coodoo.framework.audit.entity.AuditEvent;
 
 /**
  * @author coodoo GmbH (coodoo.io)

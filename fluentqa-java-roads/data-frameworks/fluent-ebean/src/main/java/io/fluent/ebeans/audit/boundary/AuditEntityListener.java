@@ -7,12 +7,13 @@ import javax.persistence.PostPersist;
 import javax.persistence.PostRemove;
 import javax.persistence.PreUpdate;
 
+import io.fluent.ebeans.audit.boundary.interceptor.AuditExportInterceptor;
+import io.fluent.ebeans.audit.boundary.interceptor.AuditImportInterceptor;
+import io.fluent.ebeans.audit.control.AuditUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.coodoo.framework.audit.boundary.interceptor.AuditExportInterceptor;
-import io.coodoo.framework.audit.boundary.interceptor.AuditImportInterceptor;
-import io.coodoo.framework.audit.control.AuditUtil;
+
 
 /**
  * @author coodoo GmbH (coodoo.io)

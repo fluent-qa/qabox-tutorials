@@ -1,5 +1,8 @@
 package io.fluent.ebeans.audit.entity;
 
+import io.fluent.ebeans.audit.boundary.AuditAction;
+import io.fluent.ebeans.audit.control.AuditConfig;
+
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
@@ -18,8 +21,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Query;
 import javax.persistence.Table;
 
-import io.coodoo.framework.audit.boundary.AuditAction;
-import io.coodoo.framework.audit.control.AuditConfig;
+
 
 /**
  * @author coodoo GmbH (coodoo.io)

@@ -10,10 +10,11 @@ import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import javax.naming.NamingException;
 
+import io.fluent.ebeans.audit.control.AuditUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.coodoo.framework.audit.control.AuditUtil;
+
 
 /**
  * Marks the reading of an entity as an EXPORT audit event, annotate the method with <code>@AuditExport</code>

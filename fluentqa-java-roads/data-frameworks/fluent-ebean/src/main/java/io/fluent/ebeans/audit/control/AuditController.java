@@ -24,20 +24,17 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 
+import io.fluent.ebeans.audit.boundary.AuditAction;
+import io.fluent.ebeans.audit.boundary.AuditInitialValues;
+import io.fluent.ebeans.audit.boundary.AuditManagedReadable;
+import io.fluent.ebeans.audit.boundary.AuditReadable;
+import io.fluent.ebeans.audit.boundary.annotation.*;
+import io.fluent.ebeans.audit.entity.AuditChange;
+import io.fluent.ebeans.audit.entity.AuditEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.coodoo.framework.audit.boundary.AuditAction;
-import io.coodoo.framework.audit.boundary.AuditInitialValues;
-import io.coodoo.framework.audit.boundary.AuditManagedReadable;
-import io.coodoo.framework.audit.boundary.AuditReadable;
-import io.coodoo.framework.audit.boundary.annotation.AuditDeleteMarker;
-import io.coodoo.framework.audit.boundary.annotation.AuditEntityManager;
-import io.coodoo.framework.audit.boundary.annotation.AuditGroupEvents;
-import io.coodoo.framework.audit.boundary.annotation.AuditGroupEventsBreak;
-import io.coodoo.framework.audit.boundary.annotation.AuditRelatedEntity;
-import io.coodoo.framework.audit.entity.AuditChange;
-import io.coodoo.framework.audit.entity.AuditEvent;
+
 
 /**
  * @author coodoo GmbH (coodoo.io)
