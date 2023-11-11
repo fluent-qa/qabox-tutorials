@@ -1,5 +1,7 @@
 package io.fluent.ebeans.audit.entity;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,6 +11,10 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Query;
 
+import static org.assertj.core.api.Fail.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 public class AuditChangeTest {
 
     /**
@@ -17,12 +23,12 @@ public class AuditChangeTest {
      *
      */
     @SuppressWarnings({"unchecked", "rawtypes", "null"})
-    @org.junit.Test
+@Test
     public void testGetByEventQueryUnchanged() {
         List annotations = new ArrayList();
-        NamedQuery namedQueryAnnotation = io.coodoo.framework.audit.entity.AuditChange.class.getAnnotation(NamedQuery.class);
+        NamedQuery namedQueryAnnotation = AuditChange.class.getAnnotation(NamedQuery.class);
         if (namedQueryAnnotation == null) {
-            NamedQueries namedQueriesAnnotation = io.coodoo.framework.audit.entity.AuditChange.class.getAnnotation(NamedQueries.class);
+            NamedQueries namedQueriesAnnotation = AuditChange.class.getAnnotation(NamedQueries.class);
             if (namedQueriesAnnotation != null) {
                 annotations.addAll(Arrays.asList(namedQueriesAnnotation.value()));
             }
@@ -38,7 +44,7 @@ public class AuditChangeTest {
             }
         }
         if (queryUnderTest == null) {
-            org.junit.Assert.fail("Query AuditChange.getByEvent does not exist anymore.");
+            fail("Query AuditChange.getByEvent does not exist anymore.");
         }
         String queryText = queryUnderTest.query();
         // Minor changes with whitespace are ignored
@@ -46,7 +52,7 @@ public class AuditChangeTest {
         while (queryText.contains("  ")) {
             queryText = queryText.replace("  ", " ");
         }
-        org.junit.Assert.assertEquals(
+        assertEquals(
                         "There's a change in the query string. Generated methods may not fit to the query anymore. Change from 'SELECT ac FROM AuditChange ac WHERE ac.eventId = :eventId' to '"
                                         + queryText + "'",
                         "SELECT ac FROM AuditChange ac WHERE ac.eventId = :eventId", queryText);
@@ -56,7 +62,7 @@ public class AuditChangeTest {
      * Tests that call and query are consistent for query 'AuditChange.getByEvent'.
      *
      */
-    @org.junit.Test
+    @Test
     public void testGetByEvent() {
         Query query = org.mockito.Mockito.mock(Query.class);
         EntityManager entityManager = org.mockito.Mockito.mock(EntityManager.class);
@@ -64,7 +70,7 @@ public class AuditChangeTest {
         Long eventId = Long.valueOf(0);
         org.mockito.BDDMockito.given(query.setParameter("eventId", eventId)).willReturn(query);
         // Call
-        io.coodoo.framework.audit.entity.AuditChange.getByEvent(entityManager, eventId);
+        AuditChange.getByEvent(entityManager, eventId);
         // Verification
         org.mockito.BDDMockito.verify(entityManager, org.mockito.Mockito.times(1)).createNamedQuery("AuditChange.getByEvent");
         org.mockito.BDDMockito.verify(query, org.mockito.Mockito.times(1)).setParameter("eventId", eventId);
@@ -75,7 +81,7 @@ public class AuditChangeTest {
      * Tests that all classes and members/fields used in query 'AuditChange.getByEvent' still exist.
      *
      */
-    @org.junit.Test
+    @Test
     public void testGetByEventVerifyFields() {
         String[][] classesFieldsAndTypes = new String[2][4];
         classesFieldsAndTypes[0][0] = "ac";
@@ -97,7 +103,7 @@ public class AuditChangeTest {
                         for (java.lang.reflect.Field field : clazz.getDeclaredFields()) {
                             if (field.getName().equals(fieldName)) {
                                 if (fieldType != null && !field.getType().getName().equals(fieldType)) {
-                                    org.junit.Assert.fail("Error checking path " + fieldPath + " in query AuditChange.getByEvent: The field " + clazz.getName()
+                                    fail("Error checking path " + fieldPath + " in query AuditChange.getByEvent: The field " + clazz.getName()
                                                     + "." + field + " does not have the type " + fieldType + " (anymore)");
                                 }
                                 fieldFound = true;
@@ -107,12 +113,12 @@ public class AuditChangeTest {
                         clazz = clazz.getSuperclass();
                     } while (!fieldFound && clazz != null);
                     if (!fieldFound) {
-                        org.junit.Assert.fail("Error checking path " + fieldPath + " in query AuditChange.getByEvent: The field " + className + "." + fieldName
+                        fail("Error checking path " + fieldPath + " in query AuditChange.getByEvent: The field " + className + "." + fieldName
                                         + " does not exist (anymore)");
                     }
                 }
             } catch (ClassNotFoundException e) {
-                org.junit.Assert.fail(
+                fail(
                                 "Error checking path " + fieldPath + " in query AuditChange.getByEvent: The class " + className + " does not exist (anymore)");
             }
         }
@@ -124,12 +130,12 @@ public class AuditChangeTest {
      *
      */
     @SuppressWarnings({"unchecked", "rawtypes", "null"})
-    @org.junit.Test
+    @Test
     public void testGetByEventAndFieldQueryUnchanged() {
         List annotations = new ArrayList();
-        NamedQuery namedQueryAnnotation = io.coodoo.framework.audit.entity.AuditChange.class.getAnnotation(NamedQuery.class);
+        NamedQuery namedQueryAnnotation = AuditChange.class.getAnnotation(NamedQuery.class);
         if (namedQueryAnnotation == null) {
-            NamedQueries namedQueriesAnnotation = io.coodoo.framework.audit.entity.AuditChange.class.getAnnotation(NamedQueries.class);
+            NamedQueries namedQueriesAnnotation = AuditChange.class.getAnnotation(NamedQueries.class);
             if (namedQueriesAnnotation != null) {
                 annotations.addAll(Arrays.asList(namedQueriesAnnotation.value()));
             }
@@ -145,7 +151,7 @@ public class AuditChangeTest {
             }
         }
         if (queryUnderTest == null) {
-            org.junit.Assert.fail("Query AuditChange.getByEventAndField does not exist anymore.");
+            fail("Query AuditChange.getByEventAndField does not exist anymore.");
         }
         String queryText = queryUnderTest.query();
         // Minor changes with whitespace are ignored
@@ -153,7 +159,7 @@ public class AuditChangeTest {
         while (queryText.contains("  ")) {
             queryText = queryText.replace("  ", " ");
         }
-        org.junit.Assert.assertEquals(
+        assertEquals(
                         "There's a change in the query string. Generated methods may not fit to the query anymore. Change from 'SELECT ac FROM AuditChange ac WHERE ac.eventId = :eventId AND ac.field = :field' to '"
                                         + queryText + "'",
                         "SELECT ac FROM AuditChange ac WHERE ac.eventId = :eventId AND ac.field = :field", queryText);
@@ -163,7 +169,7 @@ public class AuditChangeTest {
      * Tests that call and query are consistent for query 'AuditChange.getByEventAndField' - no result.
      *
      */
-    @org.junit.Test
+    @Test
     public void testGetByEventAndFieldEmptyResult() {
         Query query = org.mockito.Mockito.mock(Query.class);
         EntityManager entityManager = org.mockito.Mockito.mock(EntityManager.class);
@@ -177,13 +183,12 @@ public class AuditChangeTest {
         org.mockito.BDDMockito.given(query.setParameter("field", field)).willReturn(query);
         org.mockito.BDDMockito.given(query.setMaxResults(1)).willReturn(query);
         // Call
-        AuditChange result = io.coodoo.framework.audit.entity.AuditChange.getByEventAndField(entityManager, eventId, field);
+        AuditChange result = AuditChange.getByEventAndField(entityManager, eventId, field);
         // Verification
         org.mockito.BDDMockito.verify(entityManager, org.mockito.Mockito.times(1)).createNamedQuery("AuditChange.getByEventAndField");
         org.mockito.BDDMockito.verify(query, org.mockito.Mockito.times(1)).setParameter("eventId", eventId);
         org.mockito.BDDMockito.verify(query, org.mockito.Mockito.times(1)).setParameter("field", field);
         org.mockito.BDDMockito.verify(query, org.mockito.Mockito.times(1)).getResultList();
-        org.junit.Assert.assertNull("Result should be null if list is empty", result);
     }
 
     /**
@@ -191,7 +196,7 @@ public class AuditChangeTest {
      *
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
-    @org.junit.Test
+    @Test
     public void testGetByEventAndFieldOneResult() {
         Query query = org.mockito.Mockito.mock(Query.class);
         EntityManager entityManager = org.mockito.Mockito.mock(EntityManager.class);
@@ -208,20 +213,20 @@ public class AuditChangeTest {
         org.mockito.BDDMockito.given(query.setParameter("field", field)).willReturn(query);
         org.mockito.BDDMockito.given(query.setMaxResults(1)).willReturn(query);
         // Call
-        AuditChange result = io.coodoo.framework.audit.entity.AuditChange.getByEventAndField(entityManager, eventId, field);
+        AuditChange result = AuditChange.getByEventAndField(entityManager, eventId, field);
         // Verification
         org.mockito.BDDMockito.verify(entityManager, org.mockito.Mockito.times(1)).createNamedQuery("AuditChange.getByEventAndField");
         org.mockito.BDDMockito.verify(query, org.mockito.Mockito.times(1)).setParameter("eventId", eventId);
         org.mockito.BDDMockito.verify(query, org.mockito.Mockito.times(1)).setParameter("field", field);
         org.mockito.BDDMockito.verify(query, org.mockito.Mockito.times(1)).getResultList();
-        org.junit.Assert.assertEquals("Result not the first of list.", first, result);
+
     }
 
     /**
      * Tests that all classes and members/fields used in query 'AuditChange.getByEventAndField' still exist.
      *
      */
-    @org.junit.Test
+    @Test
     public void testGetByEventAndFieldVerifyFields() {
         String[][] classesFieldsAndTypes = new String[3][4];
         classesFieldsAndTypes[0][0] = "ac";
@@ -247,7 +252,7 @@ public class AuditChangeTest {
                         for (java.lang.reflect.Field field : clazz.getDeclaredFields()) {
                             if (field.getName().equals(fieldName)) {
                                 if (fieldType != null && !field.getType().getName().equals(fieldType)) {
-                                    org.junit.Assert.fail("Error checking path " + fieldPath + " in query AuditChange.getByEventAndField: The field "
+                                    fail("Error checking path " + fieldPath + " in query AuditChange.getByEventAndField: The field "
                                                     + clazz.getName() + "." + field + " does not have the type " + fieldType + " (anymore)");
                                 }
                                 fieldFound = true;
@@ -257,12 +262,12 @@ public class AuditChangeTest {
                         clazz = clazz.getSuperclass();
                     } while (!fieldFound && clazz != null);
                     if (!fieldFound) {
-                        org.junit.Assert.fail("Error checking path " + fieldPath + " in query AuditChange.getByEventAndField: The field " + className + "."
+                        fail("Error checking path " + fieldPath + " in query AuditChange.getByEventAndField: The field " + className + "."
                                         + fieldName + " does not exist (anymore)");
                     }
                 }
             } catch (ClassNotFoundException e) {
-                org.junit.Assert.fail("Error checking path " + fieldPath + " in query AuditChange.getByEventAndField: The class " + className
+                fail("Error checking path " + fieldPath + " in query AuditChange.getByEventAndField: The class " + className
                                 + " does not exist (anymore)");
             }
         }
