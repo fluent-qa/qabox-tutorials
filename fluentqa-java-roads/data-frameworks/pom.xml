@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>fluent-ebean</module>
-        <module>fluent-data-jpa</module>
         <module>fluent-roach-data</module>
     </modules>
     <properties>

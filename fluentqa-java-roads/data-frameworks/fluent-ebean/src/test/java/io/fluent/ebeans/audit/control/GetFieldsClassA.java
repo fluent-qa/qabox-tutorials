@@ -1,10 +1,11 @@
 package io.fluent.ebeans.audit.control;
 
+import io.fluent.ebeans.audit.boundary.annotation.AuditIgnoreField;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-import io.coodoo.framework.audit.boundary.annotation.AuditIgnoreField;
 
 public class GetFieldsClassA {
 

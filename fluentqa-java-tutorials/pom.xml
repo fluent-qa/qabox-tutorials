@@ -64,7 +64,6 @@
 
     </dependencies>
     <dependencyManagement>
-
         <dependencies>
             <dependency>
                 <groupId>org.junit</groupId>
@@ -120,16 +119,10 @@
                 <version>2.3.1</version>
             </dependency>
             <dependency>
-                <groupId>io.fluent</groupId>
-                <artifactId>fluent-upload</artifactId>
-                <version>${fluent.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
     <build>
