@@ -1,17 +1,11 @@
 package io.fluent.data.jpa.repo;
 
-import io.fluent.data.app.AppInitializer;
-import io.fluent.data.model.dto.AuthorDto;
 import io.fluent.data.model.entity.Author;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.context.TestPropertySource;
 
 import javax.sql.DataSource;
 
@@ -21,7 +15,6 @@ import java.nio.file.Files;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest()
 //@TestPropertySource(properties = {
