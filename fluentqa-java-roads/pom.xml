@@ -18,6 +18,7 @@
 <!--        <module>basic</module>-->
         <module>data-frameworks</module>
         <module>web-framework</module>
+        <module>daily-cases</module>
     </modules>
 
     <properties>
