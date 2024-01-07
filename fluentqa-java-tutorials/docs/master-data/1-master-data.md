@@ -1,10 +1,34 @@
+# 极简测试管理系统: 第一个功能之增删改查列表
+
+了解学习一个东西可能没有什么好方法，就是下面几步：
+1. 从简单入手
+2. 逐步复杂，理解更多概念
+3. 理解概念之间的逻辑,通过逻辑推导举一反三
+
+## 从最简单入手
+
+最简单功能其实就是一个增删改查表,实现一个系统字典表需要做哪些？
+系统字典表主要用来记录一些系统常量:
+1. 比如什么优先级P1，P2这种可以用来配置的东西
+2. 这个功能是最典型的后台增删改查功能,是学习erupt最好的入门案例
+
+## 先说实现的效果
+
+![img.png](master-data.png)
+
+实现以上内容需要哪些工作：
+- 数据库设计？
+- 前端？
+- 后端？
+- 其实只要一个JAVA类......, 认真的.......
+
+## 一个JAVA文件一个增删改查页面
+
+```java
 package io.fluentqa.workspace.base.model;
 
 import io.fluentqa.workspace.base.handlers.SqlTagFetchHandler;
 import lombok.Data;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.Where;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
 import xyz.erupt.annotation.sub_erupt.Layout;
@@ -33,9 +57,6 @@ import javax.persistence.Table;
 @Table(name = "master_data")
 @Entity
 @Data
-@DynamicUpdate
-@DynamicInsert
-@Where(clause = "valid=true")
 public class MasterData extends ModelWithValidFlagVo {
 
     @EruptField(
@@ -89,3 +110,12 @@ public class MasterData extends ModelWithValidFlagVo {
     private String code;
 
 }
+```
+
+## 启动看效果
+
+1. 一开始什么也没有
+2. 进行菜单配置
+
+![img.png](add-menu.png)
+
