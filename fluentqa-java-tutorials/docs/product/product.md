@@ -1,23 +1,26 @@
-package io.fluentqa.workspace.pm.product.model;
+# 产品-模块配置
 
-import io.fluentqa.workspace.base.model.ModelWithValidFlagVo;
-import xyz.erupt.annotation.Erupt;
-import xyz.erupt.annotation.EruptField;
-import xyz.erupt.annotation.sub_erupt.Layout;
-import xyz.erupt.annotation.sub_erupt.Power;
-import xyz.erupt.annotation.sub_erupt.Tree;
-import xyz.erupt.annotation.sub_field.Edit;
-import xyz.erupt.annotation.sub_field.EditType;
-import xyz.erupt.annotation.sub_field.View;
-import xyz.erupt.annotation.sub_field.sub_edit.ChoiceType;
-import xyz.erupt.annotation.sub_field.sub_edit.InputType;
-import xyz.erupt.annotation.sub_field.sub_edit.ReferenceTreeType;
-import xyz.erupt.annotation.sub_field.sub_edit.Search;
-import xyz.erupt.toolkit.handler.SqlChoiceFetchHandler;
+测试管理系统中需要给测试用例，测试任务，自动化用例归类到产品或者模块。
+那么我们就来进行产品模块分类的开发，主要用来给后续测试用例管理做配置使用。
 
-import javax.persistence.*;
-import java.util.UUID;
+## 产品/模块配置信息
 
+一般实际过程中，产品模块配置信息是一个树形结构，也就是:
+1. 产品A
+2. 产品A下面有模块A，模块B
+3. 模块A下面有子模块A1，A2
+
+所以他就是一个树形结构,需要实现的样子是:
+
+![img.png](product-view.png)
+
+看起来有点复杂，实现起来呢？***不复杂***，还是只要一个JAVA类
+
+## 实现产品/模块配置信息树形结构页面
+
+***一个JAVA类实现***
+
+```java
 @Erupt(name = "产品模块配置",
         power = @Power(importable = true, export = true),
         tree = @Tree(pid = "parent.id"),
@@ -86,61 +89,29 @@ public class ProductModuleModel extends ModelWithValidFlagVo {
                     desc = "动态获取可选类型",
                     choiceType = @ChoiceType(
                             fetchHandler = SqlChoiceFetchHandler.class,
-                            fetchHandlerParams = "select id,name from master_data " +
-                                    "where category='PRODUCT_TYPE'"
+                            fetchHandlerParams = "select id,name from master_data where category='PRODUCT'"
                     ))
     )
     private String productType;
-
-
-    @Column(length = 36, nullable = false, updatable = false)
-    private String uuid = UUID.randomUUID().toString();
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
-    }
-
-    public String getProductType() {
-        return productType;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType;
-    }
-
-    public ProductModuleModel getParent() {
-        return parent;
-    }
-
-    public void setParent(ProductModuleModel parent) {
-        this.parent = parent;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
 }
+```
+
+- 菜单配置
+
+## 树形页面的中重点
+
+![img.png](product-page.png)
+
+数字库表结构:
+
+![img_1.png](table.png)
+
+这是一张递归结构的表，parent_id是父节点id，id是当前节点id，name是当前节点名称。
+
+## 总结
+
+层级结构/树形结构页面的实现: 
+1. Model 定义中有一个 parent的字段，表示父节点id，类型就是这个类本身
+2. 数据库的递归结构: 通过id和parent.id关联就可以查找所有的子节点,这些数据本身都在一张表里面
+
+
