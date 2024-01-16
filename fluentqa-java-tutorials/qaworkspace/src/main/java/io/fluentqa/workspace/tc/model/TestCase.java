@@ -33,7 +33,7 @@ public class TestCase extends ModelWithValidFlagVo {
     @ManyToOne
     @JoinColumn(name = "product_id")
     @EruptField(
-            views = @View(title = "产品名称",column = "details"),
+            views = @View(title = "产品名称", column = "details"),
             edit = @Edit(
                     notNull = true,
                     search = @Search,
@@ -50,18 +50,8 @@ public class TestCase extends ModelWithValidFlagVo {
                     title = "用例ID"
             )
     )
-    private String uuid =  UUID.randomUUID().toString();
+    private String uuid = UUID.randomUUID().toString();
 
-    @EruptField(
-            views = @View(
-                    title = "功能点"
-            ),
-            edit = @Edit(
-                    title = "功能点",
-                    type = EditType.INPUT, search = @Search, notNull = true, inputType = @InputType(fullSpan = true)
-            )
-    )
-    private String feature;
     @EruptField(
             views = @View(
                     title = "用例描述"
@@ -82,8 +72,8 @@ public class TestCase extends ModelWithValidFlagVo {
                     type = EditType.CHOICE,
                     choiceType = @ChoiceType(
                             fetchHandler = SqlChoiceFetchHandler.class,
-                            fetchHandlerParams= {"select distinct code " +
-                                    "from master_data where category ='priority' and valid =true"}
+                            fetchHandlerParams = {"select distinct code " +
+                                    "from master_data where category ='优先级' and valid =true"}
                     )
             )
     )
@@ -95,9 +85,7 @@ public class TestCase extends ModelWithValidFlagVo {
             ),
             edit = @Edit(
                     title = "用例前提条件",
-                    type = EditType.HTML_EDITOR,
-                    htmlEditorType = @HtmlEditorType(HtmlEditorType.Type.UEDITOR)
-            )
+                    type = EditType.TEXTAREA)
     )
     private String precondition;
 
@@ -107,8 +95,7 @@ public class TestCase extends ModelWithValidFlagVo {
             ),
             edit = @Edit(
                     title = "测试步骤",
-                    type = EditType.HTML_EDITOR,
-                    htmlEditorType = @HtmlEditorType(HtmlEditorType.Type.UEDITOR)
+                    type = EditType.TEXTAREA
             )
     )
     private String steps;
@@ -118,20 +105,10 @@ public class TestCase extends ModelWithValidFlagVo {
             ),
             edit = @Edit(
                     title = "用例期望结果",
-                    type = EditType.HTML_EDITOR,
-                    htmlEditorType = @HtmlEditorType(HtmlEditorType.Type.UEDITOR)
+                    type = EditType.TEXTAREA
             )
     )
     private String expectedResult;
-
-
-    public String getFeature() {
-        return feature;
-    }
-
-    public void setFeature(String feature) {
-        this.feature = feature;
-    }
 
     public String getSummary() {
         return summary;
