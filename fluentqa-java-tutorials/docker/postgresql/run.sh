@@ -1,1 +1,0 @@
-docker-comopse up
